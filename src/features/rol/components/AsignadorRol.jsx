@@ -72,11 +72,12 @@ export default function AsignadorRol() {
   return (
     <div className="p-4 max-w-md mx-auto pb-24 min-h-screen bg-gray-50">
       <header className="mb-6">
-        <h2 className="text-2xl font-black text-indigo-900 flex items-center gap-2">
-          <Calendar className="text-indigo-600" /> Asignación de Roles
-        </h2>
+       <h2 className="text-lg sm:text-2xl font-black text-indigo-900 flex items-center gap-2 whitespace-nowrap overflow-hidden">
+      <Calendar className="text-indigo-600 shrink-0" size={20} /> 
+      <span className="truncate">Asignación de Roles</span>
+      </h2>
         <p className="text-gray-500 text-sm font-bold">Iglesia Infantil Emmanuel</p>
-        </header>
+      </header>
 
       {/* GESTIÓN DE MAESTROS */}
       <div className="glass-card rounded-2xl p-4 mb-8 border-dashed border-2 border-indigo-200 bg-white/50">
@@ -92,7 +93,10 @@ export default function AsignadorRol() {
             value={nuevoMaestro}
             onChange={(e) => setNuevoMaestro(e.target.value)}
           />
-          <button 
+         
+        </div>
+        <div className="flex gap-2 mb-4">
+           <button 
             onClick={agregarMaestro}
             className="bg-indigo-600 text-white px-4 py-2 rounded-xl text-sm font-bold shadow-md active:scale-95 transition-all"
           >

@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Kids Ministry App</string>
+    <string name="title_activity_main">Kids Ministry App</string>
+    <string name="package_name">com.amdev.kidsmin</string>
+    <string name="custom_url_scheme">com.amdev.kidsmin</string>
+</resources>
