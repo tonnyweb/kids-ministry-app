@@ -73,7 +73,7 @@ export default function AsignadorRol() {
     <div className="p-4 max-w-md mx-auto pb-24 min-h-screen bg-gray-50">
       <header className="mb-6">
        <h2 className="text-lg sm:text-2xl font-black text-indigo-900 flex items-center gap-2 whitespace-nowrap overflow-hidden">
-      <Calendar className="text-indigo-600 shrink-0" size={20} /> 
+      <Users className="text-indigo-600 shrink-0" size={20} /> 
       <span className="truncate">Asignación de Roles</span>
       </h2>
         <p className="text-gray-500 text-sm font-bold">Iglesia Infantil Emmanuel</p>

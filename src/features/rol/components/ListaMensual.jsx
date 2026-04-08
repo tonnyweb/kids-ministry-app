@@ -97,10 +97,16 @@ export default function ListaMensual() {
       <div className="print:hidden">
         {/* Header App */}
         <div className="flex justify-between items-center mb-8">
-          <div>
-            <h2 className="text-2xl font-black text-indigo-950 tracking-tighter uppercase italic">Rol de Maestros</h2>
-            <p className="text-[10px] font-bold text-indigo-400 tracking-widest uppercase">Iglesia Infantil Emmanuel</p>
-          </div>
+          <div className="min-w-0 mb-4">
+  <h2 className="text-lg sm:text-2xl font-black text-indigo-950 tracking-tighter uppercase  flex items-center gap-2 whitespace-nowrap overflow-hidden">
+    {/* Usamos Calendar que ya sabemos que funciona */}
+    <Calendar className="text-indigo-600 shrink-0" size={20} /> 
+    <span className="truncate">Rol de Maestros</span>
+  </h2>
+  <p className="text-[10px] font-bold text-indigo-400 tracking-widest uppercase mt-0.5 pl-7">
+    Iglesia Infantil Emmanuel
+  </p>
+</div>
           <div className="flex gap-2">
             <button 
               onClick={compartirWhatsApp}
