@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { supabase } from '../../../utils/supabaseClient';
-import { Calendar, Clock, User, Share2, Printer, Trash2, BookOpen } from 'lucide-react';
+import { Calendar, Clock, User, Users, Share2, Printer, Trash2, BookOpen } from 'lucide-react';
 
 export default function ListaMensual() {
   const [roles, setRoles] = useState([]);
@@ -29,9 +29,9 @@ export default function ListaMensual() {
   };
 
   const compartirWhatsApp = () => {
-    let mensaje = "📋 *ROL KIDS MINISTRY*\n\n";
+    let mensaje = "📋 - *ROL KIDS MINISTRY*\n\n";
     roles.forEach((r) => {
-      mensaje += `🗓 *${r.fecha}*\n👤 ${r.maestro}\n⏰ ${r.servicio} | 🏫 ${r.grupo}\n📖 ${r.leccion}\n----------\n`;
+      mensaje += `🗓-*${r.fecha}*\n👤 ${r.maestro}\n⏰ ${r.servicio} | 🏫 ${r.grupo}\n📖 ${r.leccion}\n----------\n`;
     });
     const url = `https://api.whatsapp.com/send?text=${encodeURIComponent(mensaje)}`;
     window.open(url, '_blank');
@@ -46,12 +46,12 @@ export default function ListaMensual() {
       <div className="hidden print:block font-sans">
         <div className="flex justify-between items-center mb-10 border-b-4 border-indigo-900 pb-6">
           <div>
-            <h1 className="text-2xl font-black text-indigo-900 tracking-tighter italic">Rol de Maestros</h1>
-            <p className="text-sm font-bold text-slate-500 uppercase tracking-[0.3em]">IGLESIA INFANTIL EMMANUEL</p>
+            <h1 className="text-2xl font-black text-indigo-900 tracking-tighter">Rol de Maestros</h1>
+            <p className="text-sm font-bold text-slate-500 uppercase">IGLESIA INFANTIL EMMANUEL</p>
           </div>
           <div className="text-right">
-            <p className="text-xs font-light text-slate-400 uppercase">Generado por</p>
-            <p className="text-sm font-black text-indigo-900 italic">Kids Ministry</p>
+            <p className="text-xs font-semibold text-slate-400 uppercase">Generado por</p>
+            <p className="text-sm font-black text-indigo-900 ">Kids Ministry</p>
           </div>
         </div>
 
@@ -95,30 +95,33 @@ export default function ListaMensual() {
           VISTA DE LA APP (Glass Design / Pantalla)
           ========================================== */}
       <div className="print:hidden">
-        {/* Header App */}
-        <div className="flex justify-between items-center mb-8">
-          <div className="min-w-0 mb-4">
-  <h2 className="text-lg sm:text-2xl font-black text-indigo-950 tracking-tighter uppercase  flex items-center gap-2 whitespace-nowrap overflow-hidden">
-    {/* Usamos Calendar que ya sabemos que funciona */}
-    <Calendar className="text-indigo-600 shrink-0" size={20} /> 
-    <span className="truncate">Rol de Maestros</span>
-  </h2>
-  <p className="text-[10px] font-bold text-indigo-400 tracking-widest uppercase mt-0.5 pl-7">
-    Iglesia Infantil Emmanuel
-  </p>
-</div>
-          <div className="flex gap-2">
+        
+        {/* Header App Mejorado para APK */}
+        <div className="flex flex-row justify-between items-start mb-8 gap-2 w-full">
+          <div className="min-w-0 flex-1">
+            <h2 className="text-lg sm:text-2xl font-black text-indigo-950 tracking-tighter uppercase flex items-center gap-2 whitespace-nowrap overflow-hidden">
+              <Calendar className="text-indigo-600 shrink-0" size={20} /> 
+              <span className="truncate">Rol de Maestros</span>
+            </h2>
+            <p className="text-[10px] font-bold text-indigo-400 tracking-widest uppercase mt-0.5 pl-7">
+              Iglesia Infantil Emmanuel
+            </p>
+          </div>
+
+          <div className="flex gap-2 shrink-0">
             <button 
               onClick={compartirWhatsApp}
-              className="p-3 bg-green-500 text-white rounded-2xl shadow-lg active:scale-90 transition-all"
+              className="p-2.5 bg-green-500 text-white rounded-xl shadow-lg active:scale-90 transition-all"
+              title="Compartir por WhatsApp"
             >
-              <Share2 size={22} />
+              <Share2 size={20} />
             </button>
             <button 
               onClick={() => window.print()}
-              className="p-3 bg-white text-indigo-600 border border-indigo-100 rounded-2xl shadow-sm active:scale-90 transition-all"
+              className="p-2.5 bg-white text-indigo-600 border border-indigo-100 rounded-xl shadow-sm active:scale-90 transition-all"
+              title="Imprimir Rol"
             >
-              <Printer size={22} />
+              <Printer size={20} />
             </button>
           </div>
         </div>
@@ -128,7 +131,7 @@ export default function ListaMensual() {
           {roles.length === 0 ? (
             <div className="glass-card rounded-[2rem] p-10 text-center">
               <BookOpen className="mx-auto text-indigo-200 mb-4" size={48} />
-              <p className="text-indigo-900/40 font-bold italic">No hay clases programadas</p>
+              <p className="text-indigo-900/40 font-bold">No hay clases programadas</p>
             </div>
           ) : (
             roles.map((r) => (
